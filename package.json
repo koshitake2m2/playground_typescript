@@ -8,7 +8,8 @@
     "start": "npm run build:live",
     "build": "tsc -p .",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\" src/index.ts",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "test:watch": "pnpm run test --watch"
   },
   "keywords": [],
   "author": "",

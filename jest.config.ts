@@ -11,6 +11,9 @@ const config: Config = {
   transform: {
     "\\.[jt]s$": "babel-jest",
   },
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
 };
 
 export default config;
