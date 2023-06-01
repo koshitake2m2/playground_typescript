@@ -6,6 +6,12 @@
 pnpm install
 ```
 
+## run
+
+```bash
+pnpm build:live:for src/index.ts
+```
+
 ## references
 - [Node.js &amp; TypeScriptのプロジェクト作成 - TypeScript Deep Dive 日本語版](https://typescript-jp.gitbook.io/deep-dive/nodejs)
 - [ECMAScript Modules · Jest](https://jestjs.io/docs/ecmascript-modules)
