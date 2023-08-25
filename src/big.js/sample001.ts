@@ -57,3 +57,11 @@ console.log(x);
   console.log(Big.RM);
   console.log(Big.roundHalfUp);
 }
+{
+  try {
+    const a = new Big("XXXXXX");
+    console.log(a);
+  } catch (e) {
+    console.log(e);
+  }
+}
