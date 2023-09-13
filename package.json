@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "pnpm run build:live",
+    "ts-node": "ts-node",
     "build": "tsc -p .",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\" src/index.ts",
     "build:live:for": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\"",

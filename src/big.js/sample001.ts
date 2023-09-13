@@ -59,9 +59,16 @@ console.log(x);
 }
 {
   try {
+    // 数値に変換できないとエラーはく
     const a = new Big("XXXXXX");
     console.log(a);
   } catch (e) {
     console.log(e);
   }
+}
+{
+  // 小数点以下の桁数を指定して四捨五入
+  const a = new Big("12345.15");
+  console.log(a.round(1));
+  console.log(a.round(1).toFixed());
 }

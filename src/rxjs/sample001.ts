@@ -39,6 +39,9 @@ subjectA.next(2);
 subjectA.complete();
 // Subject.completeしたので, subscriptionAとsubscriptionBはsubjectA.observersから削除された.
 
+// Subject.errorしても, subscriptionAとsubscriptionBはsubjectA.observersから削除される.
+// subjectA.error(3);
+
 console.log("subjectA", subjectA);
 console.log("subscriptionA", subscriptionA);
 console.log("subscriptionB", subscriptionB);
