@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    // "paths": {
+    //   "@/*": ["src/*"]
+    // },
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "outDir": "lib",
+    "strict": true,
+    // @Entityのため
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true
+    //  NOTE: `npx typeorm init --name MyProject --database sqlite` で生成されるtsconfig
+    //   "lib": [
+    //     "es5",
+    //     "es6"
+    //  ],
+    //  "target": "es5",
+    //  "module": "commonjs",
+    //  "moduleResolution": "node",
+    //  "outDir": "./build",
+    //  "emitDecoratorMetadata": true,
+    //  "experimentalDecorators": true,
+    //  "sourceMap": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}
