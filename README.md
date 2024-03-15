@@ -12,8 +12,22 @@ pnpm install
 pnpm build:live:for src/index.ts
 ```
 
+## typeorm
+
+```bash
+# 初回のmigration作成
+pnpm typeorm migration:generate --dataSource src/data-source.ts --pretty src/migration/FirstSchema
+
+# migration
+cd src/typeorm
+npx typeorm-ts-node-esm migration:run --dataSource src/data-source.ts
+npx typeorm-ts-node-esm migration:generate --dataSource src/data-source.ts --pretty src/migration/XXX
+
+```
+
 ## references
-- [Node.js &amp; TypeScriptのプロジェクト作成 - TypeScript Deep Dive 日本語版](https://typescript-jp.gitbook.io/deep-dive/nodejs)
+
+- [Node.js &amp; TypeScript のプロジェクト作成 - TypeScript Deep Dive 日本語版](https://typescript-jp.gitbook.io/deep-dive/nodejs)
 - [ECMAScript Modules · Jest](https://jestjs.io/docs/ecmascript-modules)
-  - jestでecmascript使うために必要なオプション `NODE_OPTIONS=--experimental-vm-modules`
+  - jest で ecmascript 使うために必要なオプション `NODE_OPTIONS=--experimental-vm-modules`
 - [30 Seconds of Typescript- Inspired by 30-seconds-of-code](https://decipher.dev/30-seconds-of-typescript/)

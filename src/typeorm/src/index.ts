@@ -3,6 +3,11 @@ import { User } from "./entity/User";
 
 AppDataSource.initialize()
   .then(async () => {
+    if (AppDataSource.isInitialized) {
+      console.log("AppDataSource is initialized");
+      // await AppDataSource.runMigrations();
+      console.log("migration is done");
+    }
     console.log("Inserting a new user into the database...");
     const user = new User();
     user.firstName = "Timber";
