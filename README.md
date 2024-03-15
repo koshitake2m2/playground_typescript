@@ -18,10 +18,14 @@ pnpm build:live:for src/index.ts
 # 初回のmigration作成
 pnpm typeorm migration:generate --dataSource src/data-source.ts --pretty src/migration/FirstSchema
 
-# migration
+# 手動migration
 cd src/typeorm
 npx typeorm-ts-node-esm migration:run --dataSource src/data-source.ts
 npx typeorm-ts-node-esm migration:generate --dataSource src/data-source.ts --pretty src/migration/XXX
+
+# アプリで自動migration
+pnpm typeorm:migration:generate_file src/migration/AddAgeToUser
+pnpm typeorm:run:index
 
 ```
 

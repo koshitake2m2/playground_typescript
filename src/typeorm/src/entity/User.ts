@@ -13,4 +13,8 @@ export class User {
 
   @Column()
   age: number;
+  @Column({ default: 30 })
+  age2: number;
+  // @Column({ default: 30 })
+  // age3: number;
 }
