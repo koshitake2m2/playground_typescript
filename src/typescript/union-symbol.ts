@@ -1,3 +1,4 @@
+// unionでSymbolを使うと型安全でなくなるので注意
 const Animal = {
   Dog: Symbol("DOG"),
   Cat: Symbol("CAT"),
@@ -16,10 +17,10 @@ export const animalMap: AnimalMap = {
   [Animal.Cat]: "猫",
 };
 
-describe("UnionSymbol", () => {
-  it("expect", () => {
-    expect(animalMap[Animal.Dog]).toBe("犬");
-    expect(Animal.Dog === Animal.Dog).toBe(true);
-    expect(Animal.Dog === Symbol("DOG")).toBe(false);
-  });
-});
+// 代入できちゃうので危険
+const dog: Animal = Symbol("dog");
+console.log(dog); // Symbol(dog)
+
+console.log(animalMap[Animal.Dog]); // "犬"
+console.log(Animal.Dog === Animal.Dog); // true
+console.log(Animal.Dog === Symbol("DOG")); // false
