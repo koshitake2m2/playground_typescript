@@ -12,7 +12,7 @@ type AnimalMap = {
   [key in Animal]: string;
 };
 
-export const animalMap: AnimalMap = {
+const animalMap: AnimalMap = {
   [Animal.Dog]: "犬",
   [Animal.Cat]: "猫",
 };
@@ -24,3 +24,5 @@ console.log(dog); // Symbol(dog)
 console.log(animalMap[Animal.Dog]); // "犬"
 console.log(Animal.Dog === Animal.Dog); // true
 console.log(Animal.Dog === Symbol("DOG")); // false
+
+export {};
