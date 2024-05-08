@@ -1,10 +1,12 @@
 import {
   Observable,
+  Subject,
   bufferCount,
   concatMap,
   delay,
   forkJoin,
   from,
+  takeUntil,
 } from "rxjs";
 
 /**
@@ -38,7 +40,20 @@ const doParallelRequest: (
   return forkJoin(params.map((param) => doRequest(param)));
 };
 
-const requestParams = ["success1", "error1", "success2", "error2", "success3"];
+// 途中でキャンセルするためのSubject
+const cancel$ = new Subject<void>();
+
+const requestParams = [
+  "success1",
+  "error1",
+  "success2",
+  "error2",
+  "success3",
+  "error3",
+  "success4",
+  "error4",
+  "success5",
+];
 const parallelSize = 2;
 const requestInterval = 1000;
 from(requestParams)
@@ -46,7 +61,8 @@ from(requestParams)
     bufferCount(parallelSize),
     concatMap((params) =>
       doParallelRequest(params).pipe(delay(requestInterval))
-    )
+    ),
+    takeUntil(cancel$)
   )
   .subscribe({
     next: (value) => {
@@ -59,3 +75,6 @@ from(requestParams)
       console.log("complete");
     },
   });
+
+// 3秒後にキャンセル
+new Promise((r) => setTimeout(r, 3000)).then(() => cancel$.next());
