@@ -1,5 +1,9 @@
 import { Observable, from, mergeMap } from "rxjs";
 
+/**
+ * 直列でリクエストを送るサンプル
+ */
+
 const requestA: () => Observable<number> = () => {
   console.log("requestA");
   const p = new Promise((r) => setTimeout(r, 1000)).then(() => 1);
