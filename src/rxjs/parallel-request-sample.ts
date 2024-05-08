@@ -40,11 +40,13 @@ const doParallelRequest: (
 
 const requestParams = ["success1", "error1", "success2", "error2", "success3"];
 const parallelSize = 2;
-const interval = 1000;
+const requestInterval = 1000;
 from(requestParams)
   .pipe(
     bufferCount(parallelSize),
-    concatMap((params) => doParallelRequest(params).pipe(delay(interval)))
+    concatMap((params) =>
+      doParallelRequest(params).pipe(delay(requestInterval))
+    )
   )
   .subscribe({
     next: (value) => {
