@@ -9,7 +9,7 @@ pnpm install
 ## run
 
 ```bash
-pnpm build:live:for src/index.ts
+pnpm run:watch src/index.ts
 ```
 
 ## typeorm
