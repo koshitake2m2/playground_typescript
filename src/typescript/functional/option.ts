@@ -1,4 +1,3 @@
-// type constructor
 interface Option<T> {
   get: T;
   map<U>(f: (value: T) => U): Option<U>;
