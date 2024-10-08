@@ -13,4 +13,6 @@ const result = interval$.pipe(
     return x % 2 === 1 ? of("a", "b", "c") : EMPTY;
   })
 );
+
+// subscribeするまで処理が実行されない
 result.subscribe((x) => console.log(x));
