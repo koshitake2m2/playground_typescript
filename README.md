@@ -10,6 +10,10 @@ pnpm install
 
 ```bash
 pnpm run:watch src/index.ts
+
+# `pnpm run:watch src/index.ts` が以下のようなエラーが出て動かなかったら
+# TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts"
+nodemon --watch 'src/**/*.ts' --exec ts-node ./src/index.ts
 ```
 
 ## typeorm
